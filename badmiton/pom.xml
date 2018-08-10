@@ -23,26 +23,27 @@
     </dependency>
   </dependencies>
   
-  <plugins>
-  <plugin>
-    <groupId>org.codehaus.mojo</groupId>
-    <artifactId>cobertura-maven-plugin</artifactId>
-    <version>1.12.1</version>
-    <reportSets>
-      <reportSet>
-        <id>cobertura</id>
-        <reports>
-          <report>cobertura</report>
-        </reports>
-        <configuration>
-          <formats>
-            <format>html</format>
-            <format>xml</format>
-          </formats>
-        </configuration>
-      </reportSet>
-    </reportSets>
-</plugin>
-</plugins>
-    
-</project>
+  <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>cobertura-maven-plugin</artifactId>
+                <version>1.12.1</version>
+                <configuration>
+                    <formats>
+                        <format>xml</format>
+                    </formats>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>cobertura</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+   
+  </project>
